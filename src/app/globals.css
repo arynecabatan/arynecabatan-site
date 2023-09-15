@@ -1,27 +1,116 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  body {
+    @apply bg-culturedwhite text-spacecadet dark:bg-spacecadet dark:text-culturedwhite transition-all;
+  }
+  h1 {
+    @apply text-3xl font-bold;
+  }
+  h2 {
+    @apply text-2xl font-medium;
+  }
+  h3 {
+    @apply text-xl font-bold;
+  }
+  h4 {
+    @apply text-lg font-semibold;
+  }
+  p,
+  li {
+    @apply text-base font-normal whitespace-pre-wrap;
+  }
+  small {
+    @apply text-sm font-normal;
+  }
+  a {
+    @apply text-base inline-block text-sizzlingred dark:text-tartorange;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  ul {
+    @apply space-y-0 list-disc list-inside dark:text-gray-400 ml-2;
+  }
+
+  ol {
+    @apply space-y-0 list-decimal list-inside dark:text-gray-400 ml-2;
+  }
+
+  details {
+    @apply bg-blue-300 border rounded p-2;
+  }
+
+  blockquote {
+    @apply px-2 py-1 rounded-lg bg-spacecadet/5 my-4;
+  }
+  hr {
+    @apply h-px w-full;
+  }
+  /* 
+  code {
+    @apply bg-blue-300 border rounded px-2 py-4 w-full;
+  } */
+
+  figure {
+    @apply relative pb-[56.25%] pt-[30px] h-0 px-4 overflow-hidden;
+  }
+
+  iframe {
+    @apply w-full h-full left-0 top-0 absolute overflow-hidden;
+  }
+
+  figcaption {
+    @apply italic text-xs;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@tailwind components;
+
+@layer components {
+  .burger-menu {
+    @apply rounded-full w-6 h-[2px] bg-spacecadet dark:bg-culturedwhite ease-linear duration-300;
+  }
+
+  .gradient-text {
+    @apply inline-block text-transparent bg-clip-text bg-gradient-to-r from-sizzlingred to-tartorange;
+  }
+
+  .large-text {
+    @apply text-lg;
+  }
+
+  .aryne-button {
+    @apply shadow-md text-base py-3 px-4 rounded-lg transition ease-in-out delay-100 bg-gradient-to-r from-sizzlingred to-tartorange  text-culturedwhite dark:text-culturedwhite;
+  }
+}
+
+@tailwind utilities;
+
+/* Scrollbar */
+/* width */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-black/20;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-600;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-sizzlingred;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  @apply text-culturedwhite bg-sizzlingred;
+}
+
+::selection {
+  @apply text-culturedwhite bg-sizzlingred;
 }
