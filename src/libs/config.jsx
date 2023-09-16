@@ -1,4 +1,10 @@
-import { SiBehance, SiDribbble, SiGithub, SiLinkedin } from "react-icons/si";
+import {
+  SiBehance,
+  SiDribbble,
+  SiGithub,
+  SiLinkedin,
+  SiVite,
+} from "react-icons/si";
 import {
   SiAdobephotoshop,
   SiAdobelightroom,
@@ -190,6 +196,9 @@ export const StackIcon = ({ iconName }) => {
       break;
     case "Affinity Photo":
       iconType = <SiAffinityphoto />;
+      break;
+    case "Vite":
+      iconType = <SiVite />;
       break;
     default:
       iconType = <FiHelpCircle />;
