@@ -1,5 +1,4 @@
 const { Client } = require("@notionhq/client");
-import { cache } from "react";
 
 export const revalidate = 60;
 export const notionClient = new Client({
@@ -9,7 +8,7 @@ export const notionClient = new Client({
 const { NotionToMarkdown } = require("notion-to-md");
 const n2m = new NotionToMarkdown({ notionClient: notionClient });
 
-export const getAllProjectList = cache(async () => {
+export const getAllProjectList = async () => {
   const posts = await notionClient.databases.query({
     database_id: process.env.PROJECT_DATABASE_ID,
     filter: {
@@ -22,7 +21,7 @@ export const getAllProjectList = cache(async () => {
   return posts.results.map((post) => {
     return getPageMetaData(post);
   });
-});
+};
 
 export const getSingleProjectBySlug = async (slug) => {
   const content = await notionClient.databases.query({
@@ -40,9 +39,6 @@ export const getSingleProjectBySlug = async (slug) => {
   const metadata = getPageMetaData(content.results[0]);
   const mdblocks = await n2m.pageToMarkdown(content.results[0].id);
   const mdString = n2m.toMarkdownString(mdblocks);
-
-  //console.log(mdblocks);
-  // console.log(JSON.stringify(content.results));
   return {
     metadata,
     mdString,
