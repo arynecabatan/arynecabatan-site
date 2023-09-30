@@ -74,7 +74,7 @@ const getPageMetaData = (post) => {
     slug: post.properties.Slug.rich_text[0].plain_text,
     url: post.properties.Url.rich_text[0].plain_text,
     idno: post.properties.IDNo.number,
-    highlight: post.properties.AC.checkbox,
+    highlight: post.properties.Highlight.checkbox,
     stack: post.properties.Stack.multi_select,
     cover: cover,
   };
@@ -112,7 +112,6 @@ const getPosterMetaData = (post) => {
   return {
     id: post.id,
     title: post.properties.Name.title[0].plain_text,
-    idno: post.properties.IDNo.number,
     height: post.properties.Height.number,
     width: post.properties.Width.number,
     blururl: post.properties.Blururl.rich_text[0].plain_text,
