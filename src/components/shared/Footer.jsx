@@ -16,7 +16,7 @@ export const Footer = () => {
             );
           })}
         </div>
-        <small>© Aryne Cabatan, 2023</small>
+        <small>© Aryne Cabatan, 2024</small>
       </div>
     </footer>
   );
